@@ -12,14 +12,14 @@ import SignUp from "./SignUp.jsx";
 import Detail from "./Detail.jsx";
 import UpdateSpot from "./UpdateSpot.jsx";
 import AuthProvider from "./auth/AuthProvider.jsx";
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import ErrorPage from "./ErrorPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -28,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/all-spot",
         element: <AllSpot></AllSpot>,
+        loader: () => fetch("http://localhost:3600/spot"),
       },
       {
         path: "/add-spot",
@@ -64,7 +65,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Toaster></Toaster>
         <RouterProvider router={router}></RouterProvider>
       </HelmetProvider>
-      
     </AuthProvider>
   </React.StrictMode>
 );

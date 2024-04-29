@@ -58,7 +58,7 @@ const Login = () => {
         <title>{helmet}</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center my-24">
-        <div className=" rounded-xl px-10 py-8  border-4 w-[400px]">
+        <div className=" rounded-xl px-10 py-8  border-4 w-full sm:w-[500px] lg:w-[800px] mx-5">
           <h1 className="text-[35px] text-center font-semibold ">
             Login your account
           </h1>

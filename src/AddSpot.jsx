@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { AuthContext } from "./auth/AuthContext";
-
+import { BsEmojiGrin, BsEmojiSunglassesFill } from "react-icons/bs";
 const AddSpot = () => {
   const { user } = useContext(AuthContext);
   function handleAddSpot(e) {
@@ -46,16 +46,18 @@ const AddSpot = () => {
   }
   return (
     <div className="flex justify-center items-center my-16 lg:my-24">
-
       <div className="rounded-2xl lg:p-10  p-5 border-4 w-full sm:w-[500px] lg:w-[800px] mx-5">
-      <div>
-        <h1 className="text-center text-4xl font-bold mb-5">Add <span className="text-orange-600">Tourist</span> spot</h1>
-        <hr className="mb-8"/>
-      </div>
-        <form
-          onSubmit={handleAddSpot}
-          className="  flex flex-col gap-4"
-        >
+        <div className="flex flex-col items-center">
+          <h1 className="text-center text-4xl font-bold mb-3">
+            Add <span className="text-orange-600">Tourist</span> spot
+          </h1>
+          <p className="flex items-center text-lg gap-2 mb-5">
+            This is not a big form, dont’t afraid{" "}
+            <BsEmojiGrin className="text-yellow-600" />{" "}
+          </p>
+        </div>
+        <hr className="mb-8" />
+        <form onSubmit={handleAddSpot} className="  flex flex-col gap-4">
           {/* part 01 */}
           {/* <div className="flex gap-5 flex-col sm:flex-row">
             <div className="relative h-fit    border rounded-md w-full">
@@ -117,11 +119,11 @@ const AddSpot = () => {
 
               <input
                 required
-                id="spot" 
+                id="spot"
                 name="spot"
                 className="py-4 px-5 mt-2 w-full text-lg rounded-lg outline-none bg-slate-200"
                 placeholder="Pataia"
-                type="text" 
+                type="text"
               />
             </div>
           </div>
@@ -138,7 +140,6 @@ const AddSpot = () => {
                 name="photo"
                 id="photo"
                 placeholder="https://photourl.com"
-
               />
             </div>
             <div className="w-full">
@@ -180,9 +181,9 @@ const AddSpot = () => {
                 <option className="hidden" value="">
                   -- Season --
                 </option>
-                <option value="bangladesh">Summer</option>
-                <option value="thailand">Winter</option>
-                <option value="indonesia">Rainy</option>
+                <option value="Summer">Summer</option>
+                <option value="Winter">Winter</option>
+                <option value="Rainy">Rainy</option>
               </select>
               <div className="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
                 <IoIosArrowDown className="text-2xl" />

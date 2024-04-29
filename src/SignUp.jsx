@@ -62,7 +62,7 @@ const SignUp = () => {
         <title>{helmet}</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center my-24">
-        <div className= "border-4 w-[400px] rounded-xl px-10 py-8 ">
+        <div className= "border-4 w-full sm:w-[500px] lg:w-[800px] mx-5 rounded-xl px-10 py-8 ">
           <h1 className="text-[35px] text-center font-semibold ">
             Login your account
           </h1>

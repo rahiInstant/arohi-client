@@ -8,7 +8,7 @@ import { AuthContext } from "./auth/AuthContext";
 import auth from "./auth/firebase.config";
 
 const SignUp = () => {
-  const [helmet, setHelmet] = useState("Dragon news | Register");
+  const [helmet, setHelmet] = useState("Arohi | Sign up");
   const navigate = useNavigate();
   const { createUser } = useContext(AuthContext);
   const location = useLocation();
@@ -21,6 +21,16 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const email = e.target.mail.value;
     const pass = e.target.pass.value;
+    if (!/^.{6,}$/.test(pass)) {
+      errorMsg("Password must be greater than or equal 6 word.");
+      return;
+    } else if (!/^(?=.*[A-Z])/.test(pass)) {
+      errorMsg("Password must contain at least one uppercase letter.");
+      return;
+    } else if (!/^(?=.*[a-z])/.test(pass)) {
+      errorMsg("Password must contain at least one lowercase letter.");
+      return;
+    }
     createUser(email, pass)
       .then(() => {
         updateProfile(auth.currentUser, {
@@ -29,7 +39,6 @@ const SignUp = () => {
         })
           .then(() => {
             setHelmet("Redirecting...");
-            // setSuccess("Create account successfully. Redirecting...");
             successMsg("Create account successfully. Redirecting...");
             setTimeout(() => {
               navigate(location?.state ? location.state : "/");
@@ -112,15 +121,6 @@ const SignUp = () => {
               id="pass"
               className="outline-none text-black p-3 bg-[#F3F3F3] rounded-md w-full"
             />
-            {/* <input
-              className="mt-5 w-5 h-5 rounded"
-              type="checkbox"
-              name="term"
-              id="term"
-            />{" "}
-            <label htmlFor="term" className="select-none">
-              Accept <span className="font-semibold">Term & Conditions</span>
-            </label> */}
             <button
               type="submit"
               className="text-xl font-semibold block p-3 text-white  bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305]  mt-7 rounded-md w-full"

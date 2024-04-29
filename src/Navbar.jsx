@@ -35,18 +35,24 @@ const Navbar = () => {
           <div onClick={() => setOPen(!open)} className="text-2xl lg:hidden">
             {open ? <RxCross2 /> : <HiMenuAlt1 />}
           </div>
-          <div className="text-3xl font-extrabold flex items-center gap-2">
-            <FaPersonHiking />
+          <div className="text-3xl font-extrabold flex items-center gap-2 text-emerald-700">
+            <FaPersonHiking className="text-orange-600"/>
             Arohi
           </div>
         </div>
         <NavMiddle routes={routes} open={open}></NavMiddle>
         {user ? (
-          <div
+          <div  className="flex items-center gap-5">
+            <div className="">
+              <img src={user.photoURL} className="rounded-full border-2 w-12 h-12"  alt="" />
+            </div>
+            <div
             onClick={handleLogout}
             className="cursor-pointer text-xl font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white"
           >
             Log out
+          </div>
+
           </div>
         ) : (
           <div className="flex items-center gap-5">

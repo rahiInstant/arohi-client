@@ -2,7 +2,9 @@
 const AllSpot = () => {
     return (
         <div>
-      This is all spot      
+          <div>
+            
+          </div>
         </div>
     );
 };

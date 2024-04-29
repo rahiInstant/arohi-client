@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
-import {FaFacebookF } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "./auth/AuthContext";
 import "./sign.css";
@@ -49,7 +49,7 @@ const Login = () => {
         const Msg = error.message;
         const actualMsg = Msg.slice(Msg.indexOf("/") + 1, Msg.indexOf(")"));
         errorMsg(actualMsg);
-      })
+      });
   }
 
   return (
@@ -97,6 +97,7 @@ const Login = () => {
             </button>
             <div className="flex gap-3">
               <div
+                onClick={handleGoogleSignIn}
                 type="submit"
                 className="text-xl cursor-pointer flex items-center justify-center gap-3 font-semibold bg-clip-text text-transparent border-2  p-3  mt-4 rounded-md w-full bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305] "
               >
@@ -119,7 +120,7 @@ const Login = () => {
               to="/signup"
               className="text-[#a02b2e]"
             >
-              Register
+              Sign up
             </Link>
           </p>
         </div>

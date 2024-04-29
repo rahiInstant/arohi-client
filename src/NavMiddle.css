@@ -1,4 +1,11 @@
-.active p {
-  border: 1px solid #cfcece;
-  border-radius: 6px;
+.active #link-text {
+  border-bottom: 1px solid #cfcece;
+  background-color: bisque;
+  padding: 4px 12px 4px 12px;
+}
+
+#link:hover #underline {
+  background-color: rgb(207, 66, 0);
+  width: 100%;
+  transition-duration: 400ms;
 }

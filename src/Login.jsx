@@ -3,11 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useLocation } from "react-router-dom";
+import {FaFacebookF } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "./auth/AuthContext";
-
+import "./sign.css";
 const Login = () => {
   const location = useLocation();
-  const { signInUser } = useContext(AuthContext);
+  const { signInUser, googleSignIn } = useContext(AuthContext);
   const successMsg = (msg) => toast.success(msg);
   const errorMsg = (msg) => toast.error(msg);
   const [helmet, setHelmet] = useState("Arohi | Log in");
@@ -34,18 +36,34 @@ const Login = () => {
     console.log(email, password);
   }
 
+  function handleGoogleSignIn() {
+    googleSignIn()
+      .then(() => {
+        successMsg("Sign in successfully. Redirecting...");
+        setHelmet("Redirecting...");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 2000);
+      })
+      .catch((error) => {
+        const Msg = error.message;
+        const actualMsg = Msg.slice(Msg.indexOf("/") + 1, Msg.indexOf(")"));
+        errorMsg(actualMsg);
+      })
+  }
+
   return (
     <div>
       <Helmet>
         <title>{helmet}</title>
       </Helmet>
-      <div className="w-full  flex justify-center items-center">
-        <div className="bg-[#858484] px-14 py-11 w-[500px]">
-          <h1 className="text-[35px] text-center font-semibold text-white">
+      <div className="w-full  flex justify-center items-center my-24">
+        <div className=" rounded-xl px-10 py-8  border-4 w-[400px]">
+          <h1 className="text-[35px] text-center font-semibold ">
             Login your account
           </h1>
           <hr className="my-12" />
-          <form className="text-white " onSubmit={handleSignIn}>
+          <form className="" onSubmit={handleSignIn}>
             <label className="block text-xl font-semibold mb-3" htmlFor="mail">
               Email address
             </label>
@@ -73,12 +91,28 @@ const Login = () => {
             />
             <button
               type="submit"
-              className="text-xl font-semibold block p-3 bg-[#403F3F] mt-7 rounded-md w-full"
+              className="text-xl font-semibold block text-white p-3 bg-[#cacaca] mt-7 rounded-md w-full  bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305] "
             >
               Login
             </button>
+            <div className="flex gap-3">
+              <div
+                type="submit"
+                className="text-xl cursor-pointer flex items-center justify-center gap-3 font-semibold bg-clip-text text-transparent border-2  p-3  mt-4 rounded-md w-full bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305] "
+              >
+                <FcGoogle />
+                Google
+              </div>
+              <div
+                type="submit"
+                className="text-xl cursor-pointer flex items-center bg-clip-text text-transparent border-2 justify-center gap-3 font-semibold   p-3  mt-4 rounded-md w-full bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305] "
+              >
+                <FaFacebookF className="text-blue-700" />
+                Facebook
+              </div>
+            </div>
           </form>
-          <p className="text-base font-medium text-white mt-7 text-center">
+          <p className="text-base font-medium mt-7 text-center">
             Dont’t Have An Account ?{" "}
             <Link
               state={location.state}

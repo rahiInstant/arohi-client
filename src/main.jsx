@@ -14,10 +14,12 @@ import UpdateSpot from "./UpdateSpot.jsx";
 import AuthProvider from "./auth/AuthProvider.jsx";
 import {Toaster} from 'react-hot-toast'
 import { HelmetProvider } from "react-helmet-async";
+import ErrorPage from "./ErrorPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

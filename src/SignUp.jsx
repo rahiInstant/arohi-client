@@ -21,7 +21,6 @@ const SignUp = () => {
     const photo = e.target.photo.value;
     const email = e.target.mail.value;
     const pass = e.target.pass.value;
-    const accepted = e.target.term.checked;
     createUser(email, pass)
       .then(() => {
         updateProfile(auth.currentUser, {
@@ -45,7 +44,7 @@ const SignUp = () => {
         errorMsg(error.message);
       });
 
-    console.log(name, photo, email, pass, accepted);
+    console.log(name, photo, email, pass);
   }
 
   return (
@@ -53,13 +52,13 @@ const SignUp = () => {
       <Helmet>
         <title>{helmet}</title>
       </Helmet>
-      <div className="w-full  flex justify-center items-center">
-        <div className="bg-[#858484] px-14 py-11 w-[500px]">
-          <h1 className="text-[35px] text-center font-semibold text-white">
+      <div className="w-full  flex justify-center items-center my-24">
+        <div className= "border-4 w-[400px] rounded-xl px-10 py-8 ">
+          <h1 className="text-[35px] text-center font-semibold ">
             Login your account
           </h1>
           <hr className="my-12" />
-          <form className="text-white " onSubmit={handleRegisterSubmit}>
+          <form className="" onSubmit={handleRegisterSubmit}>
             <label className="block text-xl font-semibold mb-3" htmlFor="mail">
               Your Name
             </label>
@@ -113,7 +112,7 @@ const SignUp = () => {
               id="pass"
               className="outline-none text-black p-3 bg-[#F3F3F3] rounded-md w-full"
             />
-            <input
+            {/* <input
               className="mt-5 w-5 h-5 rounded"
               type="checkbox"
               name="term"
@@ -121,15 +120,15 @@ const SignUp = () => {
             />{" "}
             <label htmlFor="term" className="select-none">
               Accept <span className="font-semibold">Term & Conditions</span>
-            </label>
+            </label> */}
             <button
               type="submit"
-              className="text-xl font-semibold block p-3 bg-[#403F3F] mt-7 rounded-md w-full"
+              className="text-xl font-semibold block p-3 text-white  bg-gradient-to-r from-[#791d91]   via-[#cc0579]  to-[#cc2305]  mt-7 rounded-md w-full"
             >
               Register
             </button>
           </form>
-          <p className="text-base font-medium text-white mt-7 text-center">
+          <p className="text-base font-medium  mt-7 text-center">
             Already have an account ?{" "}
             <Link to="/Login" className="text-[#a02b2e]">
               Log in

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import NavMiddle from "./NavMiddle";
-
+import { FaPersonHiking } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const [open, setOPen] = useState(false);
   const routes = [
@@ -20,9 +21,17 @@ const Navbar = () => {
           <div onClick={() => setOPen(!open)} className="text-2xl lg:hidden">
             {open ? <RxCross2 /> : <HiMenuAlt1 />}
           </div>
-          <div className="text-3xl font-extrabold">boiPoka</div>
+          <div className="text-3xl font-extrabold flex items-center gap-2"><FaPersonHiking />Arohi</div>
         </div>
         <NavMiddle routes={routes} open={open}></NavMiddle>
+        <div className="flex items-center gap-5">
+          <Link to="/login">
+          <div className="text-xl font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white">LogIn</div>
+          </Link>
+          <Link to="/signup">
+          <div className="text-xl font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white">SignUp</div>
+          </Link>
+        </div>
       </nav>
     </div>
   );

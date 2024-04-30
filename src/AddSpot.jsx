@@ -2,8 +2,12 @@ import { useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { AuthContext } from "./auth/AuthContext";
 import { BsEmojiGrin, BsEmojiSunglassesFill } from "react-icons/bs";
+import toast from "react-hot-toast";
 const AddSpot = () => {
   const { user } = useContext(AuthContext);
+  const errorMsg = (msg) => toast.error(msg);
+  const successMsg = (msg) => toast.success(msg);
+
   function handleAddSpot(e) {
     e.preventDefault();
     const form = e.target;
@@ -39,8 +43,12 @@ const AddSpot = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        successMsg("Data added successfully.");
         form.reset();
         console.log(data);
+      })
+      .catch(() => {
+        errorMsg("Unexpected error !!");
       });
     console.log(spotInfo);
   }

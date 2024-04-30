@@ -3,16 +3,19 @@ const Partner = () => {
   return (
     <div>
       <div className="flex items-center flex-col gap-4 mx-5 mb-3 mt-10 lg:mt-24">
-        <h1 className="text-center text-4xl font-bold ">
+        <h1 className="text-center text-4xl font-bold dark:text-slate-300">
           Our Valuable <span className="text-orange-500">Partner</span>
         </h1>
-        <p className="text-center text-lg font-medium ">
+        <p className="text-center text-lg font-medium dark:text-slate-400">
           Such company who's increase the quality of our service.
         </p>
       </div>
       <div>
         <Marquee
           pauseOnHover={true}
+          gradient={true}
+          gradientColor="grey"
+          gradientWidth={50}
           style={{
             marginTop: "40px",
           }}

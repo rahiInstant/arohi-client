@@ -4,10 +4,10 @@ const HomeCard = ({ Data }) => {
   return (
     <div>
       <div className="flex items-center flex-col gap-4 mx-5 mb-3 mt-10 lg:mt-24">
-        <h1 className="text-center text-4xl font-bold ">
+        <h1 className="text-center text-4xl font-bold dark:text-slate-300">
           <span className="text-orange-500">Best Spot</span> we Offer
         </h1>
-        <p className="text-center text-lg font-medium ">
+        <p className="text-center text-lg font-medium dark:text-slate-400">
           All the following spots we can offer you a comfortable trip.
         </p>
       </div>
@@ -16,7 +16,7 @@ const HomeCard = ({ Data }) => {
           return (
             <div key={idx} className="border p-5 rounded-lg  ">
               <img className="w-full rounded-md" src={item.photo} alt="" />
-              <h1 className="mt-4 text-[22px] font-semibold">
+              <h1 className="mt-4 text-[22px] font-semibold dark:text-slate-400">
                 {item.spot}
               </h1>
               <hr className="mt-4" />

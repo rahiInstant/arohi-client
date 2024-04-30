@@ -1,6 +1,6 @@
 .active #link-text {
   border-bottom: 1px solid #cfcece;
-  background-color: bisque;
+  background-color: rgb(255, 234, 208);
   padding: 4px 12px 4px 12px;
 }
 

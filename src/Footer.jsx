@@ -7,17 +7,17 @@ import {
 
 const Footer = () => {
   return (
-    <div className=" bg-orange-200  pb-6 pt-6 md:pb-10 lg:py-16 flex flex-col lg:px-36 md:px-16 px-5 mt-24 items-center rounded-t-2xl">
-      <div className="text-3xl font-extrabold flex items-center gap-2 text-emerald-700 mb-4">
+    <div className=" bg-orange-200 dark:bg-orange-900 pb-6 pt-6 md:pb-10 lg:py-16 flex flex-col lg:px-36 md:px-16 px-5 mt-24 items-center rounded-t-2xl">
+      <div className="text-3xl font-extrabold flex items-center gap-2 text-emerald-600 mb-4">
         <FaPersonHiking className="text-orange-600" />
         Arohi
       </div>
-      <p className="text-center  font-medium text-cyan-800 text-lg">
+      <p className="text-center  font-medium text-cyan-800 dark:text-orange-200 text-lg">
         Discover your dream home with Nest. From luxurious estates to student
         housing, find the perfect fit with our diverse selection and
         personalized service.
       </p>
-      <div className="mt-16 text-black flex flex-col-reverse sm:items-center lg:flex-row gap-5 ">
+      <div className="mt-16 text-black dark:text-slate-300 flex flex-col-reverse sm:items-center lg:flex-row gap-5 ">
         <div className="flex-auto flex flex-col  sm:flex-row items-center lg:items-start text-center md:text-left gap-8 lg:border-r border-cyan-900 lg:pr-5">
           <div className="flex gap-8 ">
             <nav className="flex flex-col gap-4">
@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <h1 className="text-center  text-black font-semibold mt-12">
+      <h1 className="text-center dark:text-slate-400 text-black font-semibold mt-12">
         @All right reserved. Nest Ltd. 2024
       </h1>
     </div>

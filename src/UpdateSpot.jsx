@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { BsEmojiSunglasses } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
@@ -6,8 +7,8 @@ const UpdateSpot = () => {
   const data = useLoaderData();
   const param = useParams();
   const navigate = useNavigate();
-  console.log(param);
-  console.log(data);
+  const errorMsg = (msg) => toast.error(msg);
+  const successMsg = (msg) => toast.success(msg);
   function handleUpdateSpot(e) {
     e.preventDefault();
     const form = e.target;
@@ -40,10 +41,12 @@ const UpdateSpot = () => {
       body: JSON.stringify(spotInfo),
     })
       .then((res) => res.json())
-      .then((data) => {
-        // console.log(data);
+      .then(() => {
+        successMsg('Update spot successfully.')
         navigate("/my-list");
-      });
+      }).catch(() => {
+        errorMsg('Unexpected error!!')
+      })
     console.log(spotInfo);
   }
   return (

@@ -13,7 +13,7 @@ const NavMiddle = ({ routes, open }) => {
       {routes.map((route, id) => {
         return (
           <NavLink id="link" className="" key={id} to={route.path}>
-            <div id="link-text" className=" text-center  py-1 rounded-sm text-base font-bold">
+            <div id="link-text" className=" text-center dark:text-orange-500 text-black  py-1 rounded-sm text-base font-bold">
               {route.name}
             </div>
             <div id="underline" className=" h-1 w-[0%] hidden lg:block"></div>

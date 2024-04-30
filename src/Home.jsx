@@ -4,6 +4,7 @@ import HomeCard from "./HomeCard";
 import { useLoaderData } from "react-router-dom";
 import Gallery from "./Gallery";
 import Country from "./Country";
+import Partner from "./Partner";
 const Home = () => {
   const Data = useLoaderData()
   console.log(Data)
@@ -16,6 +17,7 @@ const Home = () => {
       <HomeCard Data = {Data}></HomeCard>
       <Country></Country>
       <Gallery></Gallery>
+      <Partner></Partner>
     </div>
   );
 };

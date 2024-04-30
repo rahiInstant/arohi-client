@@ -7,6 +7,7 @@ const Home = () => {
         <title>Arohi | Home</title>
       </Helmet>
       <Banner></Banner>
+      
     </div>
   );
 };

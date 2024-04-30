@@ -1,0 +1,11 @@
+table,
+th,
+td {
+  border: 1px solid #c7c6c6;
+}
+
+th,
+td {
+  padding: 10px;
+  white-space: nowrap;
+}

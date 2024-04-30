@@ -59,45 +59,7 @@ const AddSpot = () => {
         <hr className="mb-8" />
         <form onSubmit={handleAddSpot} className="  flex flex-col gap-4">
           {/* part 01 */}
-          {/* <div className="flex gap-5 flex-col sm:flex-row">
-            <div className="relative h-fit    border rounded-md w-full">
-              <select
-                name="country"
-                className=" py-4 px-5 text-lg appearance-none font-semibold rounded-lg outline-none w-full "
-              >
-                <option className="hidden" value="">
-                  Country
-                </option>
-                <option value="bangladesh">Bangladesh</option>
-                <option value="thailand">Thailand</option>
-                <option value="indonesia">Indonesia</option>
-                <option value="malaysia">Malaysia</option>
-                <option value="vietnam">Vietnam</option>
-                <option value="cambodia">Cambodia</option>
-              </select>
-              <div className="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
-                <IoIosArrowDown className="text-2xl" />
-              </div>
-            </div>
-            <div className="relative h-fit  border rounded-md w-full">
-              <select
-                name="spot"
-                className=" py-4 px-5 text-lg appearance-none font-semibold rounded-lg outline-none w-full"
-              >
-                <option className="hidden" value="">
-                  Spot
-                </option>
-                <option value="bangladesh">Sundarban</option>
-                <option value="thailand">Cox’s Bazar</option>
-                <option value="indonesia">Rangamati</option>
-                <option value="malaysia">Bandarban</option>
-                <option value="vietnam">Saint Martin’s Island</option>
-              </select>
-              <div className="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
-                <IoIosArrowDown className="text-2xl" />
-              </div>
-            </div>
-          </div> */}
+
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
               <label className="block text-xl font-semibold" htmlFor="country">

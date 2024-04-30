@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
   const googleProvider = new GoogleAuthProvider();
-  console.log(user);
+  // console.log(user);
   useEffect(() => {
     const subScribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);

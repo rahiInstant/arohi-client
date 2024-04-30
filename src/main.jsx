@@ -15,6 +15,7 @@ import AuthProvider from "./auth/AuthProvider.jsx";
 import { Toaster } from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import ErrorPage from "./ErrorPage.jsx";
+import Private from "./Private.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,11 +33,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-spot",
-        element: <AddSpot></AddSpot>,
+        element: (
+          <Private>
+            <AddSpot></AddSpot>
+          </Private>
+        ),
       },
       {
         path: "/my-list",
-        element: <MyList></MyList>,
+        element: (
+          <Private>
+            <MyList></MyList>
+          </Private>
+        ),
       },
       {
         path: "/login",
@@ -52,7 +61,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        element: <UpdateSpot></UpdateSpot>,
+        element: (
+          <Private>
+            <UpdateSpot></UpdateSpot>
+          </Private>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3600/card/${params.id}`),
       },
     ],
   },

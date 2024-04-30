@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className=" bg-cyan-200  pb-6 pt-6 md:pb-10 lg:py-16 flex flex-col lg:px-36 md:px-16 px-5 mt-24 items-center rounded-t-2xl">
+    <div className=" bg-orange-200  pb-6 pt-6 md:pb-10 lg:py-16 flex flex-col lg:px-36 md:px-16 px-5 mt-24 items-center rounded-t-2xl">
       <div className="text-3xl font-extrabold flex items-center gap-2 text-emerald-700 mb-4">
         <FaPersonHiking className="text-orange-600" />
         Arohi

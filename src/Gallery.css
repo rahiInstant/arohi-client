@@ -1,0 +1,27 @@
+/* .main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 250px);
+  gap: 10px;
+} */
+
+/* .child {
+  background-color: blueviolet;
+  border-radius: 10px;
+} */
+/* #child2 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  
+} */
+
+/* #child3 {
+    grid-row: 2/4;
+} */
+
+/* #child4 {
+    grid-row: span 2/ span 2;
+} */
+/* #child-last {
+    grid-column:  span 2/ span 2;
+} */

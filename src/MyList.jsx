@@ -8,19 +8,11 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 import "./MyList.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 const MyList = () => {
   const [card, setCard] = useState([]);
-  const [item, setItem] = useState([]);
+  const navigation = useNavigation();
   const { user } = useContext(AuthContext);
-  //   const item = {
-  //     photo: "/card_01.jpg",
-  //     spot: "Rankain Roamnce Spot",
-  //     cost: 15563,
-  //     visitor: 2500,
-  //     time: 12,
-  //     season: "winter",
-  //   };
   useEffect(() => {
     fetch(`http://localhost:3600/spot/${user.email}`)
       .then((res) => res.json())
@@ -28,7 +20,6 @@ const MyList = () => {
         setCard(data);
       });
   }, [user]);
-  // console.log(card);
   function handleDeleteBtn(id) {
     Swal.fire({
       title: "Ary sure to delete this spot?",
@@ -289,7 +280,7 @@ const MyList = () => {
           Hey, {user?.displayName}, This spot added by you.
         </p>
       </div>
-
+     
       <div className="mt-10 overflow-x-auto  gap-5 mx-5 md:mx-10">
         <table className=" w-full table-auto">
           <thead>

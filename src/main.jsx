@@ -25,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:3600/home-card"),
       },
       {
         path: "/all-spot",
@@ -57,7 +58,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/detail/:id",
-        element: <Detail></Detail>,
+        element: (
+          <Private>
+            <Detail></Detail>
+          </Private>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3600/card/${params.id}`),
       },
       {
         path: "/update/:id",

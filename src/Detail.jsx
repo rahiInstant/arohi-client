@@ -9,12 +9,12 @@ import { data } from "autoprefixer";
 
 const Detail = () => {
   const Data = useLoaderData();
-  console.log(Data);
+  // console.log(Data);
   function handleScheduleSubmit(e) {
     e.preventDefault();
   }
   return (
-    <div className=" px-4 w-full  flex flex-col lg:flex-row mt-12 duration-300">
+    <div className=" px-4 w-full  flex flex-col lg:flex-row mt-12 duration-300 dark:text-slate-400">
       <Helmet>
         <title>Arohi | Details Page</title>
       </Helmet>
@@ -83,7 +83,7 @@ const Detail = () => {
             Select a time-frame
           </label>
           <select
-            className="border border-gray-600 rounded-[4px] w-full  h-10 mt-3"
+            className="border dark:text-slate-800 border-gray-600 rounded-[4px] w-full  h-10 mt-3"
             name="time"
             id="time"
             required
@@ -105,7 +105,7 @@ const Detail = () => {
                 name="visit"
                 id="cottage"
                 value="cottage"
-                className="opacity-0"
+                className="opacity-0 "
                 required
               />
               Hotel
@@ -127,27 +127,27 @@ const Detail = () => {
           </div>
 
           <input
-            className="w-full h-10 p-3 bg-slate-100 outline-none rounded-md mt-4"
+            className="w-full h-10 p-3 bg-slate-100 outline-none dark:text-slate-800 rounded-md mt-4"
             placeholder="Your Name"
             name="name"
             type="text"
             required
           />
           <input
-            className="w-full h-10 p-3 bg-slate-100 outline-none rounded-md mt-4"
+            className="w-full h-10 p-3 dark:text-slate-800 bg-slate-100 outline-none rounded-md mt-4"
             placeholder="your@mail.com"
             name="mail"
             type="text"
           />
           <input
-            className="w-full h-10 p-3 bg-slate-100 outline-none rounded-md mt-4"
+            className="w-full h-10 p-3 dark:text-slate-800 bg-slate-100 outline-none rounded-md mt-4"
             placeholder="+254545545"
             name="phone"
             type="text"
             required
           />
           <textarea
-            className="w-full p-3 h-full bg-slate-100 outline-none rounded-lg mt-4"
+            className="w-full p-3 h-full dark:text-slate-800 bg-slate-100 outline-none rounded-lg mt-4"
             name="comment"
             id=""
             cols="30"

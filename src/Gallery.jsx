@@ -4,7 +4,7 @@ const Gallery = () => {
   return (
     <div>
       <div className="flex items-center flex-col gap-4 mx-5 mb-3 mt-10 lg:mt-24">
-        <h1 className="text-center text-4xl font-bold dark:text-slate-300">
+        <h1 className="text-center text-3xl md:text-4xl font-bold dark:text-slate-300">
           Our <span className="text-orange-500">Photo</span> Gallery
         </h1>
         <p className="text-center text-lg font-medium dark:text-slate-400">

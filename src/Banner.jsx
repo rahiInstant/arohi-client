@@ -1,4 +1,4 @@
-import { Autoplay, Pagination } from "swiper/modules";
+import {  Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -20,11 +20,11 @@ const Banner = () => {
         <SwiperSlide>
           <div
             id="ban"
-            className={`h-[500px] text-green-900 rounded-lg relative bg-[url('/slide_01.jpg')] bg-cover bg-center font-Poppins`}
+            className={`h-[500px] text-green-900  rounded-lg relative bg-[url('/slide_01.jpg')] bg-cover bg-center font-Poppins`}
           >
-            <div className="absolute right-0 bottom-0 mr-10 mb-10">
-              <h1 className="text-4xl font-bold">Saint Martin’s Island</h1>
-              <h2 className="flex items-center gap-2 mt-3 text-xl font-medium ">
+            <div className="absolute rounded-lg lg:right-0  bottom-0 lg:mr-5 mb-10 lg:mb-5   max-md:w-[90%] max-lg:w-[60%] bg-white p-5 max-lg:left-1/2 max-lg:-translate-x-1/2">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold ">Saint Martin’s Island</h1>
+              <h2 className="flex items-center gap-2 mt-3 text-lg  font-medium ">
                 <FaLocationDot /> Chittagong, Bangladesh
               </h2>
             </div>
@@ -33,10 +33,10 @@ const Banner = () => {
         <SwiperSlide>
           <div
             id="ban"
-            className={`h-[500px] text-white rounded-lg relative bg-[url('/slide_02.jpg')] bg-cover bg-center`}
+            className={`h-[500px] text-green-900  rounded-lg relative bg-[url('/slide_02.jpg')] bg-cover bg-center`}
           >
-            <div className="absolute right-0 bottom-0 mr-10 mb-10">
-              <h1 className="text-4xl font-bold">Chiang Mai</h1>
+            <div className="absolute rounded-lg lg:right-0  bottom-0 lg:mr-5 mb-10 lg:mb-5   max-md:w-[90%] max-lg:w-[60%] bg-white p-5 max-lg:left-1/2 max-lg:-translate-x-1/2">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">Chiang Mai</h1>
               <h2 className="flex items-center gap-2 mt-3 text-xl font-medium ">
                 <FaLocationDot /> Bangkok, Thailand
               </h2>
@@ -46,10 +46,10 @@ const Banner = () => {
         <SwiperSlide>
           <div
             id="ban"
-            className={`h-[500px] text-white relative rounded-lg  bg-[url('/slide_03.jpg')] bg-cover bg-center`}
+            className={`h-[500px] text-green-900  relative rounded-lg  bg-[url('/slide_03.jpg')] bg-cover bg-center`}
           >
-            <div className="absolute right-0 bottom-0 mr-10 mb-10">
-              <h1 className="text-4xl font-bold">Cameron Highlands</h1>
+            <div className="absolute rounded-lg lg:right-0  bottom-0 lg:mr-5 mb-10 lg:mb-5   max-md:w-[90%] max-lg:w-[60%] bg-white p-5 max-lg:left-1/2 max-lg:-translate-x-1/2">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">Cameron Highlands</h1>
               <h2 className="flex items-center gap-2 mt-3 text-xl font-medium ">
                 <FaLocationDot /> Kuala Lumpur, Malaysia
               </h2>

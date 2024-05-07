@@ -4,21 +4,26 @@ import { GrDocumentUpdate } from "react-icons/gr";
 import { AuthContext } from "./auth/AuthContext";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-
-const MySwal = withReactContent(Swal);
 import "./MyList.css";
 import { IoIosArrowDown } from "react-icons/io";
-import { Link, useNavigation } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const MyList = () => {
   const [card, setCard] = useState([]);
-  const navigation = useNavigation();
+  const [id, setId] = useState("");
   const { user } = useContext(AuthContext);
+  const MySwal = withReactContent(Swal);
+  const errorMsg = (msg) => toast.error(msg);
+  const navigate = useNavigate();
+  const successMsg = (msg) => toast.success(msg);
   useEffect(() => {
-    fetch(`http://localhost:3600/spot/${user.email}`)
+    
+    fetch(`https://easy-tour.vercel.app/spot/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setCard(data);
-      });
+      })
   }, [user]);
   function handleDeleteBtn(id) {
     Swal.fire({
@@ -31,7 +36,7 @@ const MyList = () => {
       .then((result) => {
         console.log(result);
         if (result.isConfirmed) {
-          return fetch(`http://localhost:3600/spot/${id}`, {
+          return fetch(`https://easy-tour.vercel.app/spot/${id}`, {
             method: "DELETE",
           });
         } else if (result.isDismissed) {
@@ -80,14 +85,33 @@ const MyList = () => {
   //     season,
   //     comment,
   //   };
-  //   // fetch(`http://localhost:3600/card/${id}`)
-  //   console.log(id)
+
+  //   fetch(`https://easy-tour.vercel.app/spot/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(spotInfo),
+  //   })
+  //     .then((res) => res.json())
+  //     .then(() => {
+  //       successMsg("Update spot successfully.");
+  //       // navigate("/my-list");
+
+  //     })
+  //     .catch(() => {
+  //       errorMsg("Unexpected error!!");
+  //     });
+  //   // fetch(`https://easy-tour.vercel.app/card/${id}`)
+  //   // console.log(id)
   //   console.log(spotInfo);
+  //   // console.log(id)
   // }
 
   // function handleUpdateBtn(id) {
   //   // console.log(id);
-  //   fetch(`http://localhost:3600/card/${id}`)
+  //   setId(id);
+  //   fetch(`https://easy-tour.vercel.app/card/${id}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       // console.log(data);
@@ -96,10 +120,15 @@ const MyList = () => {
   //         width: "36rem",
   //         html: (
   //           <div className="relative">
-  //             <div className="  h-8 ">
-  //             </div>
-  //             <RxCrossCircled onClick={() => Swal.close()} className="absolute right-0 top-0 cursor-pointer font-bold text-[30px] text-red-600"/>
-  //             <form onSubmit={updateServerData} className=" flex flex-col gap-4">
+  //             <div className="  h-8 "></div>
+  //             <RxCrossCircled
+  //               onClick={() => Swal.close()}
+  //               className="absolute right-0 top-0 cursor-pointer font-bold text-[30px] text-red-600"
+  //             />
+  //             <form
+  //               onSubmit={updateServerData}
+  //               className=" flex flex-col gap-4"
+  //             >
   //               {/* 01 */}
   //               <div className="flex gap-5 w-full flex-col sm:flex-row">
   //                 <div className="w-full">
@@ -263,7 +292,6 @@ const MyList = () => {
   //               >
   //                 Add Spot
   //               </button>
-
   //             </form>
   //           </div>
   //         ),
@@ -272,16 +300,21 @@ const MyList = () => {
   // }
   return (
     <div>
+      <Helmet>
+        <title>
+          Arohi | My List
+        </title>
+      </Helmet>
       <div className="flex items-center flex-col gap-4 mx-5 mb-3 mt-14">
-        <h1 className="text-center text-4xl font-bold ">
+        <h1 className="text-center text-3xl lg:text-4xl font-bold dark:text-slate-300">
           Added by <span className="text-orange-500">You</span>
         </h1>
-        <p className="text-center text-lg font-medium ">
+        <p className="text-center text-lg font-medium dark:text-slate-400">
           Hey, {user?.displayName}, This spot added by you.
         </p>
       </div>
-     
-      <div className="mt-10 overflow-x-auto  gap-5 mx-5 md:mx-10">
+
+      <div className="mt-10 overflow-x-auto  gap-5 mx-5 md:mx-10 dark:text-slate-300">
         <table className=" w-full table-auto">
           <thead>
             <tr>

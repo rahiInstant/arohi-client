@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 import { BsEmojiSunglasses } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
@@ -33,7 +34,7 @@ const UpdateSpot = () => {
       comment,
     };
 
-    fetch(`http://localhost:3600/spot/${param.id}`, {
+    fetch(`https://easy-tour.vercel.app/spot/${param.id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -42,21 +43,25 @@ const UpdateSpot = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        successMsg('Update spot successfully.')
+        successMsg("Update spot successfully.");
         navigate("/my-list");
-      }).catch(() => {
-        errorMsg('Unexpected error!!')
       })
-    console.log(spotInfo);
+      .catch(() => {
+        errorMsg("Unexpected error!!");
+      });
+    // console.log(spotInfo);
   }
   return (
-    <div className="flex justify-center items-center my-16 lg:my-24">
-      <div className="rounded-2xl lg:p-10  p-5 border-4 w-full sm:w-[500px] lg:w-[800px] mx-5">
+    <div className="flex justify-center items-center my-16 lg:my-24 select-none px-4">
+      <Helmet>
+        <title>Arohi | Update Spot Data</title>
+      </Helmet>
+      <div className="rounded-2xl mx-5 lg:p-10 flex flex-col  p-5 border-4 w-full sm:w-[500px] lg:w-[800px]">
         <div className="flex flex-col items-center">
-          <h1 className="text-center text-4xl font-bold mb-3">
+          <h1 className="text-center text-3xl md:text-4xl font-bold mb-3 dark:text-slate-300">
             <span className="text-orange-600">Update</span> spot
           </h1>
-          <p className="flex items-center text-lg gap-2 mb-5">
+          <p className="flex items-center text-lg gap-2 mb-5 dark:text-slate-400">
             Update Carefully!! <BsEmojiSunglasses className="text-yellow-600" />{" "}
           </p>
         </div>
@@ -66,7 +71,7 @@ const UpdateSpot = () => {
 
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="country">
+              <label className="block text-xl font-semibold dark:text-slate-400" htmlFor="country">
                 Country
               </label>
               <input
@@ -79,7 +84,7 @@ const UpdateSpot = () => {
               />
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="spot">
+              <label className="block text-xl font-semibold dark:text-slate-400" htmlFor="spot">
                 Spot
               </label>
 
@@ -96,7 +101,7 @@ const UpdateSpot = () => {
           {/* Part 02 */}
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="photo">
+              <label className="block text-xl font-semibold dark:text-slate-400" htmlFor="photo">
                 Photo URL
               </label>
               <input
@@ -109,7 +114,7 @@ const UpdateSpot = () => {
               />
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="location">
+              <label className="block text-xl font-semibold dark:text-slate-400" htmlFor="location">
                 Location
               </label>
 
@@ -126,7 +131,7 @@ const UpdateSpot = () => {
           {/* part 03 */}
           <div className="flex gap-5 items-end flex-col sm:flex-row">
             <div className="w-full gap-5">
-              <label className="block text-xl font-semibold" htmlFor="cost">
+              <label className="block text-xl font-semibold dark:text-slate-400" htmlFor="cost">
                 Average Cost
               </label>
               <input
@@ -160,7 +165,7 @@ const UpdateSpot = () => {
           {/* part 04 */}
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="time">
+              <label className="block text-xl dark:text-slate-400 font-semibold" htmlFor="time">
                 Travel Time
               </label>
               <input
@@ -173,7 +178,7 @@ const UpdateSpot = () => {
               />
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="visitor">
+              <label className="block text-xl dark:text-slate-400 font-semibold" htmlFor="visitor">
                 Total Visitor per Year
               </label>
 

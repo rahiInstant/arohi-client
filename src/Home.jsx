@@ -6,15 +6,17 @@ import Gallery from "./Gallery";
 import Country from "./Country";
 import Partner from "./Partner";
 const Home = () => {
-  const Data = useLoaderData()
-  console.log(Data)
+  const Data = useLoaderData();
+  // console.log(Data)
+  // const navigation = useNavigation()
+  // console.log(navigation.state)
   return (
     <div>
       <Helmet>
         <title>Arohi | Home</title>
       </Helmet>
       <Banner></Banner>
-      <HomeCard Data = {Data}></HomeCard>
+      <HomeCard Data={Data}></HomeCard>
       <Country></Country>
       <Gallery></Gallery>
       <Partner></Partner>

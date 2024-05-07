@@ -58,13 +58,13 @@ const Login = () => {
         <title>{helmet}</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center my-24">
-        <div className=" rounded-xl px-10 py-8  border-4 w-full sm:w-[500px] lg:w-[800px] mx-5">
-          <h1 className="text-[35px] text-center font-semibold ">
+        <div className=" border-4 w-full sm:w-[500px] lg:w-[800px] mx-5 rounded-xl px-5 lg:px-10 py-8 ">
+          <h1 className="text-[35px] text-center font-semibold dark:text-slate-300">
             Login your account
           </h1>
           <hr className="my-12" />
           <form className="" onSubmit={handleSignIn}>
-            <label className="block text-xl font-semibold mb-3" htmlFor="mail">
+            <label className="block text-xl font-semibold mb-3 dark:text-slate-400" htmlFor="mail">
               Email address
             </label>
             <input
@@ -76,7 +76,7 @@ const Login = () => {
               className="outline-none p-3 bg-[#F3F3F3] rounded-md w-full text-black"
             />
             <label
-              className="block text-xl font-semibold mt-6 mb-3"
+              className="block text-xl font-semibold mt-6 mb-3 dark:text-slate-400"
               htmlFor="mail"
             >
               Password
@@ -113,12 +113,12 @@ const Login = () => {
               </div>
             </div>
           </form>
-          <p className="text-base font-medium mt-7 text-center">
+          <p className="text-base font-medium mt-7 text-center dark:text-slate-400">
             Dont’t Have An Account ?{" "}
             <Link
               state={location.state}
               to="/signup"
-              className="text-[#a02b2e]"
+              className="text-[#da4f2d]  font-bold italic"
             >
               Sign up
             </Link>

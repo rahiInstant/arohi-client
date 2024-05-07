@@ -3,7 +3,7 @@ import { HiMenuAlt1 } from "react-icons/hi";
 import { RxCross2 } from "react-icons/rx";
 import NavMiddle from "./NavMiddle";
 import { FaPersonHiking } from "react-icons/fa6";
-import { Link, json } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AuthContext } from "./auth/AuthContext";
 import toast from "react-hot-toast";
 import { MdLightMode } from "react-icons/md";
@@ -53,13 +53,15 @@ const Navbar = () => {
   function handleSetTheme() {
     setItem(!getItem().theme);
     setTheme(getItem().theme);
-    // console.log(getItem().theme);
   }
   return (
     <div className="select-none">
       <nav className="p-6 flex justify-between items-center ">
         <div className="flex items-center gap-1">
-          <div onClick={() => setOPen(!open)} className="text-2xl lg:hidden">
+          <div
+            onClick={() => setOPen(!open)}
+            className="text-2xl lg:hidden dark:text-white"
+          >
             {open ? <RxCross2 /> : <HiMenuAlt1 />}
           </div>
           <div className="text-3xl font-extrabold flex items-center gap-2 text-emerald-700">
@@ -67,7 +69,7 @@ const Navbar = () => {
             Arohi
           </div>
         </div>
-        <NavMiddle routes={routes} open={open}></NavMiddle>
+        <NavMiddle user={user} routes={routes} open={open} handleLogout={handleLogout}></NavMiddle>
         <div className="flex gap-4  items-center">
           <div
             onClick={handleSetTheme}
@@ -75,34 +77,35 @@ const Navbar = () => {
           >
             {theme ? <MdLightMode /> : <MdNightlightRound />}
           </div>
+
           {user ? (
-            <div className="flex items-center gap-5">
+            <div className=" items-center gap-5 flex">
               <div className="">
                 <img
                   src={user.photoURL}
-                  className="rounded-full border-2 w-12 h-12"
+                  className="rounded-full border-2 w-10 h-10"
                   alt=""
                 />
               </div>
               <div
                 onClick={handleLogout}
-                className="cursor-pointer dark:text-green-400 dark:hover:text-white text-xl font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white"
+                className="cursor-pointer hidden lg:block dark:text-green-400 dark:hover:text-white text-xl font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white"
               >
                 Log out
               </div>
             </div>
           ) : (
-            <div className="flex items-center gap-5">
+            <div className=" items-center gap-5 hidden lg:flex">
               <Link to="/login">
                 <div className="text-xl dark:text-green-400 dark:hover:text-white font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white">
                   Log in
                 </div>
               </Link>
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 <div className="text-xl dark:text-green-400 dark:hover:text-white font-medium py-2 px-5  border border-green-700 rounded-lg hover:bg-green-700 duration-200 hover:text-white">
                   Sign up
                 </div>
-              </Link>
+              </Link> */}
             </div>
           )}
         </div>

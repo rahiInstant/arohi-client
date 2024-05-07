@@ -1,7 +1,8 @@
 import PropTypes from "prop-types";
-import { NavLink } from "react-router-dom";
-import './NavMiddle.css'
-const NavMiddle = ({ routes, open }) => {
+import { Link, NavLink } from "react-router-dom";
+import "./NavMiddle.css";
+const NavMiddle = ({ routes, open, user, handleLogout }) => {
+  console.log(typeof user)
   return (
     <div
       className={`lg:flex w-[200px] lg:w-auto
@@ -13,13 +14,34 @@ const NavMiddle = ({ routes, open }) => {
       {routes.map((route, id) => {
         return (
           <NavLink id="link" className="" key={id} to={route.path}>
-            <div id="link-text" className=" text-center dark:text-orange-500 text-black  py-1 rounded-sm text-base font-bold">
+            <div
+              id="link-text"
+              className=" text-left lg:text-center dark:text-orange-500 text-black  py-1 rounded-sm text-base font-bold"
+            >
               {route.name}
             </div>
             <div id="underline" className=" h-1 w-[0%] hidden lg:block"></div>
           </NavLink>
         );
       })}
+      {user ? (
+        <div
+          id="link-text"
+          onClick={handleLogout}
+          className="border cursor-pointer lg:hidden  border-orange-900 mt-3 hover:bg-orange-800 hover:text-white duration-150 text-center dark:text-orange-500 text-black  py-1 rounded-lg text-base font-bold"
+        >
+          Sign out
+        </div>
+      ) : (
+        <Link id="link" className="lg:hidden" to="/login">
+          <div
+            id="link-text"
+            className=" border border-orange-900 mt-3 hover:bg-orange-800 hover:text-white duration-150 text-center dark:text-orange-500 text-black  py-1 rounded-lg text-base font-bold"
+          >
+            Log In
+          </div>
+        </Link>
+      )}
     </div>
   );
 };
@@ -27,6 +49,7 @@ const NavMiddle = ({ routes, open }) => {
 NavMiddle.propTypes = {
   routes: PropTypes.array.isRequired,
   open: PropTypes.bool.isRequired,
+  handleLogout: PropTypes.func,
 };
 
 export default NavMiddle;

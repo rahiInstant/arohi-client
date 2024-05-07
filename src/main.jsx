@@ -8,7 +8,6 @@ import Home from "./Home.jsx";
 import AddSpot from "./AddSpot.jsx";
 import MyList from "./MyList.jsx";
 import Login from "./Login.jsx";
-import SignUp from "./SignUp.jsx";
 import Detail from "./Detail.jsx";
 import UpdateSpot from "./UpdateSpot.jsx";
 import AuthProvider from "./auth/AuthProvider.jsx";
@@ -16,6 +15,8 @@ import { Toaster } from "react-hot-toast";
 import { HelmetProvider } from "react-helmet-async";
 import ErrorPage from "./ErrorPage.jsx";
 import Private from "./Private.jsx";
+import Specific from "./Specific.jsx";
+import SignUp from "./SignUp.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,12 +26,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3600/home-card"),
+        loader: () => fetch("https://easy-tour.vercel.app/home-card"),
       },
       {
         path: "/all-spot",
         element: <AllSpot></AllSpot>,
-        loader: () => fetch("http://localhost:3600/spot"),
+        loader: () => fetch("https://easy-tour.vercel.app/spot"),
       },
       {
         path: "/add-spot",
@@ -64,7 +65,7 @@ const router = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3600/card/${params.id}`),
+          fetch(`https://easy-tour.vercel.app/card/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -74,7 +75,13 @@ const router = createBrowserRouter([
           </Private>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3600/card/${params.id}`),
+          fetch(`https://easy-tour.vercel.app/card/${params.id}`),
+      },
+      {
+        path: "/specific/:name",
+        element: <Specific></Specific>,
+        loader: ({ params }) =>
+          fetch(`https://easy-tour.vercel.app/specific/${params.name}`),
       },
     ],
   },

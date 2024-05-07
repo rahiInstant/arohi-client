@@ -68,7 +68,7 @@ const Footer = () => {
         </div>
       </div>
       <h1 className="text-center dark:text-slate-400 text-black font-semibold mt-12">
-        @All right reserved. Nest Ltd. 2024
+        @All right reserved. Arohi Ltd. 2024
       </h1>
     </div>
   );

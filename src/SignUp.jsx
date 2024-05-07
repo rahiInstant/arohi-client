@@ -62,13 +62,16 @@ const SignUp = () => {
         <title>{helmet}</title>
       </Helmet>
       <div className="w-full  flex justify-center items-center my-24">
-        <div className= "border-4 w-full sm:w-[500px] lg:w-[800px] mx-5 rounded-xl px-10 py-8 ">
-          <h1 className="text-[35px] text-center font-semibold ">
-            Login your account
+        <div className="border-4 w-full sm:w-[500px] lg:w-[800px] mx-5 rounded-xl px-5 lg:px-10 py-8 ">
+          <h1 className="text-[35px] text-center font-semibold dark:text-slate-300">
+           Please, sign Up
           </h1>
           <hr className="my-12" />
           <form className="" onSubmit={handleRegisterSubmit}>
-            <label className="block text-xl font-semibold mb-3" htmlFor="mail">
+            <label
+              className="block text-xl font-semibold mb-3 dark:text-slate-300"
+              htmlFor="mail"
+            >
               Your Name
             </label>
             <input
@@ -80,7 +83,7 @@ const SignUp = () => {
               className="outline-none p-3 bg-[#F3F3F3] rounded-md w-full text-black"
             />
             <label
-              className="block text-xl font-semibold mb-3 mt-6"
+              className="block text-xl font-semibold mb-3 mt-6 dark:text-slate-300"
               htmlFor="mail"
             >
               Photo URL
@@ -94,7 +97,7 @@ const SignUp = () => {
               className="outline-none p-3 bg-[#F3F3F3] rounded-md w-full text-black"
             />
             <label
-              className="block text-xl font-semibold mb-3 mt-6"
+              className="block text-xl font-semibold mb-3 mt-6 dark:text-slate-300"
               htmlFor="mail"
             >
               Email address
@@ -108,7 +111,7 @@ const SignUp = () => {
               className="outline-none p-3 bg-[#F3F3F3] rounded-md w-full text-black"
             />
             <label
-              className="block text-xl font-semibold mt-6 mb-3"
+              className="block text-xl font-semibold mt-6 mb-3 dark:text-slate-300"
               htmlFor="mail"
             >
               Password
@@ -128,9 +131,9 @@ const SignUp = () => {
               Register
             </button>
           </form>
-          <p className="text-base font-medium  mt-7 text-center">
+          <p className="text-base font-medium  mt-7 text-center dark:text-slate-300">
             Already have an account ?{" "}
-            <Link to="/Login" className="text-[#a02b2e]">
+            <Link to="/Login" className="text-[#da4f2d]  font-bold italic">
               Log in
             </Link>
           </p>

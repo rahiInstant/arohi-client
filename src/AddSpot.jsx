@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { AuthContext } from "./auth/AuthContext";
-import { BsEmojiGrin, BsEmojiSunglassesFill } from "react-icons/bs";
+import { BsEmojiGrin } from "react-icons/bs";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 const AddSpot = () => {
   const { user } = useContext(AuthContext);
   const errorMsg = (msg) => toast.error(msg);
@@ -34,7 +35,7 @@ const AddSpot = () => {
       userEmail: user.email,
     };
 
-    fetch("http://localhost:3600/spot", {
+    fetch("https://easy-tour.vercel.app/spot", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -53,13 +54,18 @@ const AddSpot = () => {
     console.log(spotInfo);
   }
   return (
-    <div className="flex justify-center items-center my-16 lg:my-24">
+    <div className="flex justify-center items-center my-16 lg:my-24 px-4">
+      <Helmet>
+        <title>
+          Arohi | Add Spot
+        </title>
+      </Helmet>
       <div className="rounded-2xl lg:p-10  p-5 border-4 w-full sm:w-[500px] lg:w-[800px] mx-5">
         <div className="flex flex-col items-center">
-          <h1 className="text-center text-4xl font-bold mb-3">
+          <h1 className="text-center text-3xl md:text-4xl font-bold mb-3 dark:text-slate-300">
             Add <span className="text-orange-600">Tourist</span> spot
           </h1>
-          <p className="flex items-center text-lg gap-2 mb-5">
+          <p className="flex items-center text-lg  mb-5 dark:text-slate-400">
             This is not a big form, dont’t afraid{" "}
             <BsEmojiGrin className="text-yellow-600" />{" "}
           </p>
@@ -68,22 +74,32 @@ const AddSpot = () => {
         <form onSubmit={handleAddSpot} className="  flex flex-col gap-4">
           {/* part 01 */}
 
-          <div className="flex gap-5 w-full flex-col sm:flex-row">
-            <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="country">
-                Country
-              </label>
-              <input
-                required
-                className="py-4 px-5 w-full mt-2 text-lg rounded-lg outline-none bg-slate-200"
-                type="text"
+          <div className="flex gap-5 w-full items-end  flex-col sm:flex-row">
+            <div className="relative h-fit  border rounded-md w-full">
+              <select
                 name="country"
-                id="country"
-                placeholder="Thailand"
-              />
+                required
+                className=" py-4 px-5 text-lg   appearance-none font-semibold rounded-lg outline-none w-full"
+              >
+                <option className="hidden" value="">
+                  -- Country --
+                </option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Cambodia">Cambodia</option>
+              </select>
+              <div className="absolute top-1/2 right-3 -translate-y-1/2 pointer-events-none">
+                <IoIosArrowDown className="text-2xl" />
+              </div>
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="spot">
+              <label
+                className="block text-xl font-semibold  dark:text-slate-400"
+                htmlFor="spot"
+              >
                 Spot
               </label>
 
@@ -100,7 +116,10 @@ const AddSpot = () => {
           {/* Part 02 */}
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="photo">
+              <label
+                className="block text-xl font-semibold  dark:text-slate-400"
+                htmlFor="photo"
+              >
                 Photo URL
               </label>
               <input
@@ -113,7 +132,10 @@ const AddSpot = () => {
               />
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="location">
+              <label
+                className="block text-xl font-semibold  dark:text-slate-400"
+                htmlFor="location"
+              >
                 Location
               </label>
 
@@ -130,7 +152,10 @@ const AddSpot = () => {
           {/* part 03 */}
           <div className="flex gap-5 items-end flex-col sm:flex-row">
             <div className="w-full gap-5">
-              <label className="block text-xl font-semibold" htmlFor="cost">
+              <label
+                className="block text-xl font-semibold  dark:text-slate-400"
+                htmlFor="cost"
+              >
                 Average Cost
               </label>
               <input
@@ -146,7 +171,7 @@ const AddSpot = () => {
               <select
                 name="season"
                 required
-                className=" py-4 px-5 text-lg appearance-none font-semibold rounded-lg outline-none w-full"
+                className=" py-4 px-5 text-lg  appearance-none font-semibold rounded-lg outline-none w-full"
               >
                 <option className="hidden" value="">
                   -- Season --
@@ -163,7 +188,10 @@ const AddSpot = () => {
           {/* part 04 */}
           <div className="flex gap-5 w-full flex-col sm:flex-row">
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="time">
+              <label
+                className="block text-xl  dark:text-slate-400 font-semibold"
+                htmlFor="time"
+              >
                 Travel Time
               </label>
               <input
@@ -176,7 +204,10 @@ const AddSpot = () => {
               />
             </div>
             <div className="w-full">
-              <label className="block text-xl font-semibold" htmlFor="visitor">
+              <label
+                className="block text-xl  dark:text-slate-400 font-semibold"
+                htmlFor="visitor"
+              >
                 Total Visitor per Year
               </label>
 

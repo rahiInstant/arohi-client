@@ -40,7 +40,7 @@ We welcome contributions from developers of all skill levels! Whether you're int
 
 ## Getting Started
 
-To get started with Arohi, simply visit [Arohi](https://github.com/rahiInstant/arohi-client.git) and start exploring ! If you're interested in contributing to the development of Arohi, follow the instructions above to set up the project on your local machine.
+To get started with Arohi, simply visit [Arohi](https://easy-touring.web.app) and start exploring ! If you're interested in contributing to the development of Arohi, follow the instructions above to set up the project on your local machine.
 
 
 ---
